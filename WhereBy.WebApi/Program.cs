@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using System;
+using System.Net;
 using WhereBy.Persistence;
 
 namespace WhereBy.WebApi
@@ -42,7 +43,13 @@ namespace WhereBy.WebApi
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(serverOptions =>
+                    {
+                        if(Environment.GetEnvironmentVariable("IS_HEROKU") == "TRUE")
+                        {
+                            serverOptions.Listen(IPAddress.Any, Convert.ToInt32(Environment.GetEnvironmentVariable("PORT")));
+                        }
+                    }).UseStartup<Startup>();
                 });
     }
 }
