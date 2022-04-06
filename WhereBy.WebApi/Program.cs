@@ -15,11 +15,11 @@ namespace WhereBy.WebApi
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .WriteTo.File("NotesWebAppLog-.txt", rollingInterval:
-                    RollingInterval.Day)
+                .WriteTo.Console()
                 .CreateLogger();
 
-            var host = CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args)
+                .Build();
 
             using (var scope = host.Services.CreateScope())
             {
