@@ -85,11 +85,11 @@ namespace WhereBy.WebApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateNoticeDto createNoteDto)
+        public async Task<ActionResult<NoticeDetailsVm>> Create([FromBody] CreateNoticeDto createNoteDto)
         {
             var command = _mapper.Map<CreateNoticeCommand>(createNoteDto);
-            var noteId = await Mediator.Send(command);
-            return Ok(noteId);
+            var note = await Mediator.Send(command);
+            return Ok(note);
         }
 
         /// <summary>

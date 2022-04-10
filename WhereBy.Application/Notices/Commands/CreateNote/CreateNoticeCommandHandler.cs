@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Application.Interfaces;
+using WhereBy.Application.Notices.Queries.GetNoteDetails;
+using WhereBy.Application.Notices.Queries.GetNoteList;
 using WhereBy.Domain;
 
 namespace WhereBy.Application.Notices.Commands.CreateNote
 {
     public class CreateNoticeCommandHandler
-        :IRequestHandler<CreateNoticeCommand, int>
+        :IRequestHandler<CreateNoticeCommand, NoticeDetailsVm>
     {
         private readonly IDatabaseContext _dbContext;
+        private readonly IMapper mapper;
 
-        public CreateNoticeCommandHandler(IDatabaseContext dbContext) =>
+        public CreateNoticeCommandHandler(IDatabaseContext dbContext, IMapper mapper)
+        {
             _dbContext = dbContext;
+            this.mapper = mapper;
+        }
 
-        public async Task<int> Handle(CreateNoticeCommand request,
+        public async Task<NoticeDetailsVm> Handle(CreateNoticeCommand request,
             CancellationToken cancellationToken)
         {
             var shop = await _dbContext.Shops
@@ -40,7 +47,7 @@ namespace WhereBy.Application.Notices.Commands.CreateNote
             await _dbContext.Notices.AddAsync(notice, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return notice.Id;
+            return mapper.Map<NoticeDetailsVm>(notice);
         }
     }
 }
