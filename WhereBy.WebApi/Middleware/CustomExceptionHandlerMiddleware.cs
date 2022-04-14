@@ -33,14 +33,8 @@ namespace WhereBy.WebApi.Middleware
             var result = string.Empty;
             switch(exception)
             {
-                case ValidationException validationException:
+                case ValidationException or BadRequestException:
                     code = HttpStatusCode.BadRequest;
-                    result = JsonSerializer.Serialize(
-                    new
-                    {
-                        code = code,
-                        detail = validationException.Message
-                    });
                     break;
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
@@ -52,7 +46,7 @@ namespace WhereBy.WebApi.Middleware
                     new
                     {
                         code = code,
-                        detail = "Unauthorized"
+                        detail = exception.Message ?? "UNAUTHORIZED"
                     });
                     break;
             }
