@@ -11,6 +11,7 @@ using WhereBy.Application.Notices.Commands.UpdateNote;
 using WhereBy.Application.Notices.Commands.DeleteCommand;
 using WhereBy.WebApi.Models;
 using WhereBy.Application.Shops.Queries.GetShopList;
+using WhereBy.Application.Shops.Commands.Create;
 
 namespace WhereBy.WebApi.Controllers
 {
@@ -45,7 +46,7 @@ namespace WhereBy.WebApi.Controllers
         }
 
         ///// <summary>
-        ///// Gets the note by id
+        ///// Gets the shop by id
         ///// </summary>
         ///// <remarks>
         ///// Sample request:
@@ -68,77 +69,77 @@ namespace WhereBy.WebApi.Controllers
         //    return Ok(vm);
         //}
 
-        ///// <summary>
-        ///// Creates the note
-        ///// </summary>
-        ///// <remarks>
-        ///// Sample request:
-        ///// POST /note
-        ///// {
-        /////     title: "note title",
-        /////     details: "note details"
-        ///// }
-        ///// </remarks>
-        ///// <param name="createNoteDto">CreateNoteDto object</param>
-        ///// <returns>Returns id (guid)</returns>
-        ///// <response code="201">Success</response>
-        ///// <response code="401">If the user is unauthorized</response>
-        //[HttpPost]
-        //[ProducesResponseType(StatusCodes.Status201Created)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        //public async Task<ActionResult<Guid>> Create([FromBody] CreateNoticeDto createNoteDto)
-        //{
-        //    var command = _mapper.Map<CreateNoticeCommand>(createNoteDto);
-        //    var noteId = await Mediator.Send(command);
-        //    return Ok(noteId);
-        //}
-
-        ///// <summary>
-        ///// Updates the note
-        ///// </summary>
-        ///// <remarks>
-        ///// Sample request:
-        ///// PUT /note
-        ///// {
-        /////     title: "updated note title"
-        ///// }
-        ///// </remarks>
-        ///// <param name="updateNoteDto">UpdateNoteDto object</param>
-        ///// <returns>Returns NoContent</returns>
-        ///// <response code="204">Success</response>
-        ///// <response code="401">If the user is unauthorized</response>
-        //[HttpPut]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        //public async Task<IActionResult> Update([FromBody] UpdateNoteDto updateNoteDto)
-        //{
-        //    var command = _mapper.Map<UpdateNoticeCommand>(updateNoteDto);
-        //    await Mediator.Send(command);
-        //    return NoContent();
-        //}
-
-        ///// <summary>
-        ///// Deletes the note by id
-        ///// </summary>
-        ///// <remarks>
-        ///// Sample request:
-        ///// DELETE /note/88DEB432-062F-43DE-8DCD-8B6EF79073D3
-        ///// </remarks>
-        ///// <param name="id">Id of the note (guid)</param>
-        ///// <returns>Returns NoContent</returns>
-        ///// <response code="204">Success</response>
-        ///// <response code="401">If the user is unauthorized</response>
-        //[HttpDelete("{id}")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var command = new DeleteNoticeCommand
-        //    {
-        //        Id = id
-        //    };
-        //    await Mediator.Send(command);
-        //    return NoContent();
-        //}
+    /// <summary>
+    /// Creates the shop
+    /// </summary>
+    /// <remarks>
+    /// Sample request:
+    /// POST /note
+    /// {
+    ///     name: "shop name",
+    ///     address: "shop address",
+    ///     location: "shop location",
+    /// }
+    /// </remarks>
+    /// <returns>Returns shop (ShopLookupDto)</returns>
+    /// <response code="201">Success</response>
+    /// <response code="401">If the user is unauthorized</response>
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<ActionResult<ShopLookupDto>> Create([FromBody] CreateShopCommand createShop)
+    {
+        var shop = await Mediator.Send(createShop);
+        return Ok(shop);
     }
+
+    ///// <summary>
+    ///// Updates the note
+    ///// </summary>
+    ///// <remarks>
+    ///// Sample request:
+    ///// PUT /note
+    ///// {
+    /////     title: "updated note title"
+    ///// }
+    ///// </remarks>
+    ///// <param name="updateNoteDto">UpdateNoteDto object</param>
+    ///// <returns>Returns NoContent</returns>
+    ///// <response code="204">Success</response>
+    ///// <response code="401">If the user is unauthorized</response>
+    //[HttpPut]
+    //[ProducesResponseType(StatusCodes.Status204NoContent)]
+    //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    //public async Task<IActionResult> Update([FromBody] UpdateNoteDto updateNoteDto)
+    //{
+    //    var command = _mapper.Map<UpdateNoticeCommand>(updateNoteDto);
+    //    await Mediator.Send(command);
+    //    return NoContent();
+    //}
+
+    ///// <summary>
+    ///// Deletes the note by id
+    ///// </summary>
+    ///// <remarks>
+    ///// Sample request:
+    ///// DELETE /note/88DEB432-062F-43DE-8DCD-8B6EF79073D3
+    ///// </remarks>
+    ///// <param name="id">Id of the note (guid)</param>
+    ///// <returns>Returns NoContent</returns>
+    ///// <response code="204">Success</response>
+    ///// <response code="401">If the user is unauthorized</response>
+    //[HttpDelete("{id}")]
+    //[ProducesResponseType(StatusCodes.Status204NoContent)]
+    //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    //public async Task<IActionResult> Delete(int id)
+    //{
+    //    var command = new DeleteNoticeCommand
+    //    {
+    //        Id = id
+    //    };
+    //    await Mediator.Send(command);
+    //    return NoContent();
+    //}
+}
 }
