@@ -33,6 +33,7 @@ namespace WhereBy.WebApi.Controllers
         /// <returns>Returns NoteListVm</returns>
         /// <response code="200">Success</response>
         /// <response code="401">If the user is unauthorized</response>
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -54,6 +55,7 @@ namespace WhereBy.WebApi.Controllers
         /// <returns>Returns NoteDetailsVm</returns>
         /// <response code="200">Success</response>
         /// <response code="401">If the user in unauthorized</response>
+        [Authorize]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -82,6 +84,7 @@ namespace WhereBy.WebApi.Controllers
         /// <returns>Returns id (guid)</returns>
         /// <response code="201">Success</response>
         /// <response code="401">If the user is unauthorized</response>
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -106,6 +109,7 @@ namespace WhereBy.WebApi.Controllers
         /// <returns>Returns NoContent</returns>
         /// <response code="204">Success</response>
         /// <response code="401">If the user is unauthorized</response>
+        [Authorize]
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -127,6 +131,7 @@ namespace WhereBy.WebApi.Controllers
         /// <returns>Returns NoContent</returns>
         /// <response code="204">Success</response>
         /// <response code="401">If the user is unauthorized</response>
+        [Authorize]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

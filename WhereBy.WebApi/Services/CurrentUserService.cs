@@ -1,25 +1,38 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using WhereBy.Application.Interfaces;
 
 namespace WhereBy.WebApi.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IConfiguration configuration;
 
-        public CurrentUserService(IHttpContextAccessor httpContextAccessor) =>
-            _httpContextAccessor = httpContextAccessor;
+        public CurrentUserService(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
+            this.httpContextAccessor = httpContextAccessor;
+            this.configuration = configuration;
+        }
 
         public int UserId
         {
             get
             {
-                var id = _httpContextAccessor.HttpContext?.User?
-                    .FindFirstValue(ClaimTypes.NameIdentifier);
-                return string.IsNullOrEmpty(id) ? -1 : int.Parse(id);
+                return GetUserIdFromHttpContext();
             }
+        }
+
+        private int GetUserIdFromHttpContext()
+        {
+            return int.Parse(httpContextAccessor.HttpContext.User
+                .FindFirstValue(ClaimTypes.NameIdentifier));
         }
     }
 }

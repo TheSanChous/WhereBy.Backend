@@ -45,6 +45,16 @@ namespace WhereBy.WebApi.Middleware
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
                     break;
+                case UnauthorizedException:
+                    code = HttpStatusCode.Unauthorized;
+                    code = HttpStatusCode.BadRequest;
+                    result = JsonSerializer.Serialize(
+                    new
+                    {
+                        code = code,
+                        detail = "Unauthorized"
+                    });
+                    break;
             }
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;

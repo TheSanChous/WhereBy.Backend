@@ -1,25 +1,21 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using System.Reflection;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
+using System.Text;
 using WhereBy.Application;
 using WhereBy.Application.Common.Mappings;
 using WhereBy.Application.Interfaces;
 using WhereBy.Persistence;
 using WhereBy.WebApi.Middleware;
 using WhereBy.WebApi.Services;
-using IdentityServer4;
-using IdentityServer4.Models;
-using System.Collections.Generic;
-using WhereBy.WebApi.Identity;
-using WhereBy.Domain;
-using Microsoft.AspNetCore.Identity;
 
 namespace WhereBy.WebApi
 {
@@ -42,6 +38,26 @@ namespace WhereBy.WebApi
 
             services.AddControllers();
 
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+                o.SaveToken = true;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    ValidAudience = Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                };
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy =>
@@ -58,8 +74,7 @@ namespace WhereBy.WebApi
                     ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
             services.AddApiVersioning();
-
-            services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            services.AddWebApiServices();
             services.AddHttpContextAccessor();
         }
 
@@ -85,8 +100,10 @@ namespace WhereBy.WebApi
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
+
             app.UseAuthentication();
             app.UseAuthorization();
+
             app.UseApiVersioning();
             app.UseEndpoints(endpoints =>
             {

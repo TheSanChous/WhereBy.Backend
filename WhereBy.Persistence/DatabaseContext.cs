@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 
 namespace WhereBy.Persistence
 {
-    public class DatabaseContext : IdentityDbContext<User>, IDatabaseContext
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Shop> Shops { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)

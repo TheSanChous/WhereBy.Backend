@@ -19,4 +19,8 @@
     <ProjectReference Include="..\WhereBy.Domain\WhereBy.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+  </ItemGroup>
+
 </Project>
