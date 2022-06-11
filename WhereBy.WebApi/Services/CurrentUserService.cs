@@ -31,8 +31,10 @@ namespace WhereBy.WebApi.Services
 
         private int GetUserIdFromHttpContext()
         {
-            return int.Parse(httpContextAccessor.HttpContext.User
-                .FindFirstValue(ClaimTypes.NameIdentifier));
+            var userId = httpContextAccessor.HttpContext.User
+                .FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId)) throw new UnauthorizedAccessException();
+            return int.Parse(userId);
         }
     }
 }
