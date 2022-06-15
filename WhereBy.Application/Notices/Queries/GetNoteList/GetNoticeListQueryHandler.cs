@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteList
+namespace WhereBuy.Application.Notices.Queries.GetNoteList
 {
     public class GetNoticeListQueryHandler
         : IRequestHandler<GetNoticeListQuery, NoticeListVm>

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using WhereBy.Application.Shops.Commands.Create;
-using WhereBy.Application.Shops.Queries.GetShopList;
+using WhereBuy.Application.Shops.Commands.Create;
+using WhereBuy.Application.Shops.Queries.GetShopList;
 
-namespace WhereBy.WebApi.Controllers
+namespace WhereBuy.WebApi.Controllers
 {
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]

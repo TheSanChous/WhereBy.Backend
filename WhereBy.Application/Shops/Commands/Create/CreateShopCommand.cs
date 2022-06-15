@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Application.Shops.Queries.GetShopList;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Application.Shops.Queries.GetShopList;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Shops.Commands.Create
+namespace WhereBuy.Application.Shops.Commands.Create
 {
     public class CreateShopCommand : IRequest<ShopLookupDto>, IMapWith<Shop>
     {

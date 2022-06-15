@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhereBy.Application.Common.Exceptions
+namespace WhereBuy.Application.Common.Exceptions
 {
     public class UnauthorizedException : Exception
     {

@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WhereBy.WebApi.Controllers
+namespace WhereBuy.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]

@@ -5,9 +5,9 @@ using Serilog;
 using Serilog.Events;
 using System;
 using System.Net;
-using WhereBy.Persistence;
+using WhereBuy.Persistence;
 
-namespace WhereBy.WebApi
+namespace WhereBuy.WebApi
 {
     public class Program
     {

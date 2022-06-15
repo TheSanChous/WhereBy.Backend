@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
-using WhereBy.Application.Notices.Queries.GetNoteDetails;
-using WhereBy.Application.Notices.Queries.GetNoteList;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Application.Notices.Queries.GetNoteDetails;
+using WhereBuy.Application.Notices.Queries.GetNoteList;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Notices.Commands.CreateNote
+namespace WhereBuy.Application.Notices.Commands.CreateNote
 {
     public class CreateNoticeCommandHandler
         :IRequestHandler<CreateNoticeCommand, NoticeDetailsVm>

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using AutoMapper;
 
-namespace WhereBy.Application.Common.Mappings
+namespace WhereBuy.Application.Common.Mappings
 {
     public class AssemblyMappingProfile : Profile
     {

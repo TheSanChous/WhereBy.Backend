@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WhereBy.Application.Interfaces;
-using WhereBy.WebApi.Services.Auth;
-using WhereBy.WebApi.Services.JWT;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.WebApi.Services.Auth;
+using WhereBuy.WebApi.Services.JWT;
 
-namespace WhereBy.WebApi.Services
+namespace WhereBuy.WebApi.Services
 {
     public static class DependecyInjection
     {

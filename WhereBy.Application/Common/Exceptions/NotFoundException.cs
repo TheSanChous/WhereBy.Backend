@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WhereBy.Application.Common.Exceptions
+namespace WhereBuy.Application.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

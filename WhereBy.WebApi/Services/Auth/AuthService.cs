@@ -2,14 +2,14 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
-using WhereBy.Domain;
-using WhereBy.WebApi.Helpers;
-using WhereBy.WebApi.Models.Auth;
-using WhereBy.WebApi.Services.JWT;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Domain;
+using WhereBuy.WebApi.Helpers;
+using WhereBuy.WebApi.Models.Auth;
+using WhereBuy.WebApi.Services.JWT;
 
-namespace WhereBy.WebApi.Services.Auth
+namespace WhereBuy.WebApi.Services.Auth
 {
     public class AuthService : IAuthService
     {

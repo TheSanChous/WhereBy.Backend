@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentValidation;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteList
+namespace WhereBuy.Application.Notices.Queries.GetNoteList
 {
     public class GetNoteListQueryValidator : AbstractValidator<GetNoticeListQuery>
     {

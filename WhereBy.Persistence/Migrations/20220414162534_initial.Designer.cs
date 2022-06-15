@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using WhereBy.Persistence;
+using WhereBuy.Persistence;
 
 #nullable disable
 
-namespace WhereBy.Persistence.Migrations
+namespace WhereBuy.Persistence.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20220414162534_initial")]

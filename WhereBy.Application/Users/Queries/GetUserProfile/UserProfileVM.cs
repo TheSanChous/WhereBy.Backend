@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Users.Queries.GetUserProfile
+namespace WhereBuy.Application.Users.Queries.GetUserProfile
 {
     public class UserProfileVM : IMapWith<User>
     {

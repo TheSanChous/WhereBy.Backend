@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace WhereBy.WebApi.Middleware
+namespace WhereBuy.WebApi.Middleware
 {
     public static class CustomExceptionHandlerMiddlewareExtensions
     {

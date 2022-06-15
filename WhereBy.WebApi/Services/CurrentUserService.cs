@@ -6,9 +6,9 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.WebApi.Services
+namespace WhereBuy.WebApi.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

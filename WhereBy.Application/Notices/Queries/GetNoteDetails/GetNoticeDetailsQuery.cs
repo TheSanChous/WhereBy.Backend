@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteDetails
+namespace WhereBuy.Application.Notices.Queries.GetNoteDetails
 {
     public class GetNoticeDetailsQuery : IRequest<NoticeDetailsVm>
     {

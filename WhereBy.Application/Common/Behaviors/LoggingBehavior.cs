@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.Application.Common.Behaviors
+namespace WhereBuy.Application.Common.Behaviors
 {
     public class LoggingBehavior<TRequest, TResponse>
         : IPipelineBehavior<TRequest, TResponse> where TRequest

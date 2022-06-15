@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.WebApi.Helpers
+namespace WhereBuy.WebApi.Helpers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class AuthorizeAttribute : Attribute

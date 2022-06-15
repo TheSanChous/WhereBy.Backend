@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using FluentValidation;
 
-namespace WhereBy.Application.Common.Behaviors
+namespace WhereBuy.Application.Common.Behaviors
 {
     public class ValidationBehavior<TRequest, TResponse>
         : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>

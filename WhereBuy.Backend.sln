@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CAD6F5E6-05C8-4A64-AA7F-5B6952BB0DA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.Domain", "WhereBy.Domain\WhereBy.Domain.csproj", "{CEA7AC40-184A-4492-A0DD-EF5ADB2261E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBuy.Domain", "WhereBy.Domain\WhereBuy.Domain.csproj", "{CEA7AC40-184A-4492-A0DD-EF5ADB2261E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.Application", "WhereBy.Application\WhereBy.Application.csproj", "{BDC482BF-5ABE-4EE3-99E5-C5D437F1438E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBuy.Application", "WhereBy.Application\WhereBuy.Application.csproj", "{BDC482BF-5ABE-4EE3-99E5-C5D437F1438E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.Persistence", "WhereBy.Persistence\WhereBy.Persistence.csproj", "{592DD536-FDAB-4B7A-8E03-B2AC726E72F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBuy.Persistence", "WhereBy.Persistence\WhereBuy.Persistence.csproj", "{592DD536-FDAB-4B7A-8E03-B2AC726E72F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.WebApi", "WhereBy.WebApi\WhereBy.WebApi.csproj", "{25EE35FD-3E84-4F78-A0BC-4D9ABEC47F63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBuy.WebApi", "WhereBy.WebApi\WhereBuy.WebApi.csproj", "{25EE35FD-3E84-4F78-A0BC-4D9ABEC47F63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

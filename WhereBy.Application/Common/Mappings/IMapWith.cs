@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace WhereBy.Application.Common.Mappings
+namespace WhereBuy.Application.Common.Mappings
 {
     public interface IMapWith<T>
     {

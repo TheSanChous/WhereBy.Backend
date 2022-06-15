@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Application.Notices.Commands.UpdateNote;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Application.Notices.Commands.UpdateNote;
 
-namespace WhereBy.WebApi.Models
+namespace WhereBuy.WebApi.Models
 {
     public class UpdateNoteDto : IMapWith<UpdateNoticeCommand>
     {

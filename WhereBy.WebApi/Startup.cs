@@ -10,14 +10,14 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
-using WhereBy.Application;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Application.Interfaces;
-using WhereBy.Persistence;
-using WhereBy.WebApi.Middleware;
-using WhereBy.WebApi.Services;
+using WhereBuy.Application;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Persistence;
+using WhereBuy.WebApi.Middleware;
+using WhereBuy.WebApi.Services;
 
-namespace WhereBy.WebApi
+namespace WhereBuy.WebApi
 {
     public class Startup
     {

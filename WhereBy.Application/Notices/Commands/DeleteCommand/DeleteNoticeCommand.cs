@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace WhereBy.Application.Notices.Commands.DeleteCommand
+namespace WhereBuy.Application.Notices.Commands.DeleteCommand
 {
     public class DeleteNoticeCommand : IRequest
     {

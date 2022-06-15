@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
-using WhereBy.Application.Shops.Queries.GetShopList;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Application.Shops.Queries.GetShopList;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Shops.Commands.Create
+namespace WhereBuy.Application.Shops.Commands.Create
 {
     public class CreateShopCommandHandler : IRequestHandler<CreateShopCommand, ShopLookupDto>
     {

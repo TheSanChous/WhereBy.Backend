@@ -4,9 +4,9 @@ using System.Net;
 using System.Text.Json;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
-using WhereBy.Application.Common.Exceptions;
+using WhereBuy.Application.Common.Exceptions;
 
-namespace WhereBy.WebApi.Middleware
+namespace WhereBuy.WebApi.Middleware
 {
     public class CustomExceptionHandlerMiddleware
     {

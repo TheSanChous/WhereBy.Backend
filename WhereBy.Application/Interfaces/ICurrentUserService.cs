@@ -1,7 +1,7 @@
 ﻿using System;
-using WhereBy.Domain;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Interfaces
+namespace WhereBuy.Application.Interfaces
 {
     public interface ICurrentUserService
     {

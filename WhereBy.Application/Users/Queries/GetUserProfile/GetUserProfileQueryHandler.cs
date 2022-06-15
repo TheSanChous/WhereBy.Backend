@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.Application.Users.Queries.GetUserProfile
+namespace WhereBuy.Application.Users.Queries.GetUserProfile
 {
     public class GetUserProfileQueryHandler : IRequestHandler<GetUserProfileQuery, UserProfileVM>
     {

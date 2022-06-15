@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.Application.Shops.Queries.GetShopList
+namespace WhereBuy.Application.Shops.Queries.GetShopList
 {
     public class GetShopListQueryHandler : IRequestHandler<GetShopListQuery, ShopListVM>
     {

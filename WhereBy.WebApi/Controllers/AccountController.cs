@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using WhereBy.Application.Users.Queries.GetUserProfile;
+using WhereBuy.Application.Users.Queries.GetUserProfile;
 
-namespace WhereBy.WebApi.Controllers
+namespace WhereBuy.WebApi.Controllers
 {
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]

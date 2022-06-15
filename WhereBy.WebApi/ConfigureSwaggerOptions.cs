@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace WhereBy.WebApi
+namespace WhereBuy.WebApi
 {
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
@@ -24,7 +24,7 @@ namespace WhereBy.WebApi
                     new OpenApiInfo
                     {
                         Version = apiVersion,
-                        Title = $"WhereBy API {apiVersion}"
+                        Title = $"WhereBuy API {apiVersion}"
                     });
             }
 

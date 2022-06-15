@@ -1,8 +1,8 @@
 ﻿using System;
 using MediatR;
-using WhereBy.Application.Notices.Queries.GetNoteDetails;
+using WhereBuy.Application.Notices.Queries.GetNoteDetails;
 
-namespace WhereBy.Application.Notices.Commands.CreateNote
+namespace WhereBuy.Application.Notices.Commands.CreateNote
 {
     public class CreateNoticeCommand : IRequest<NoticeDetailsVm>
     {

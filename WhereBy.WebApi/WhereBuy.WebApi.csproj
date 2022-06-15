@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WhereBy.Application\WhereBy.Application.csproj" />
-    <ProjectReference Include="..\WhereBy.Persistence\WhereBy.Persistence.csproj" />
+    <ProjectReference Include="..\WhereBy.Application\WhereBuy.Application.csproj" />
+    <ProjectReference Include="..\WhereBy.Persistence\WhereBuy.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace WhereBy.Application.Shops.Commands.Create
+namespace WhereBuy.Application.Shops.Commands.Create
 {
     public class CreateShopCommandValidator : AbstractValidator<CreateShopCommand>
     {

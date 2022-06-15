@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 
-namespace WhereBy.Persistence
+namespace WhereBuy.Persistence
 {
     public static class DependencyInjection
     {

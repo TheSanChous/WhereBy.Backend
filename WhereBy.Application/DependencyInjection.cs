@@ -2,9 +2,9 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
-using WhereBy.Application.Common.Behaviors;
+using WhereBuy.Application.Common.Behaviors;
 
-namespace WhereBy.Application
+namespace WhereBuy.Application
 {
     public static class DependencyInjection
     {

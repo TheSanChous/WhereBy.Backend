@@ -3,11 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Domain;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Notices.Commands.UpdateNote
+namespace WhereBuy.Application.Notices.Commands.UpdateNote
 {
     public class UpdateNoticeCommandHandler
         : IRequestHandler<UpdateNoticeCommand>

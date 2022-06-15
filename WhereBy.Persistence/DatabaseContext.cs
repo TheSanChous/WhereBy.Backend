@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
-using WhereBy.Domain;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhereBy.Persistence
+namespace WhereBuy.Persistence
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {

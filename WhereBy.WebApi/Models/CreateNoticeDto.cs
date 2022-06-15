@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Application.Notices.Commands.CreateNote;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Application.Notices.Commands.CreateNote;
 using System.ComponentModel.DataAnnotations;
 
-namespace WhereBy.WebApi.Models
+namespace WhereBuy.WebApi.Models
 {
     public class CreateNoticeDto : IMapWith<CreateNoticeCommand>
     {

@@ -1,13 +1,13 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using WhereBy.Application.Interfaces;
+using WhereBuy.Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteDetails
+namespace WhereBuy.Application.Notices.Queries.GetNoteDetails
 {
     public class GetNoticeDetailsQueryHandler
         : IRequestHandler<GetNoticeDetailsQuery, NoticeDetailsVm>

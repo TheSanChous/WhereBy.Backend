@@ -1,9 +1,9 @@
 ﻿using System;
 using AutoMapper;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteDetails
+namespace WhereBuy.Application.Notices.Queries.GetNoteDetails
 {
     public class NoticeDetailsVm : IMapWith<Notice>
     {

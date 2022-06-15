@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using WhereBy.Application.Notices.Queries.GetNoteList;
-using WhereBy.Application.Notices.Queries.GetNoteDetails;
-using WhereBy.Application.Notices.Commands.CreateNote;
-using WhereBy.Application.Notices.Commands.UpdateNote;
-using WhereBy.Application.Notices.Commands.DeleteCommand;
-using WhereBy.WebApi.Models;
+using WhereBuy.Application.Notices.Queries.GetNoteList;
+using WhereBuy.Application.Notices.Queries.GetNoteDetails;
+using WhereBuy.Application.Notices.Commands.CreateNote;
+using WhereBuy.Application.Notices.Commands.UpdateNote;
+using WhereBuy.Application.Notices.Commands.DeleteCommand;
+using WhereBuy.WebApi.Models;
 
-namespace WhereBy.WebApi.Controllers
+namespace WhereBuy.WebApi.Controllers
 {
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteList
+namespace WhereBuy.Application.Notices.Queries.GetNoteList
 {
     public class NoticeListVm
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WhereBy.Domain;
+using WhereBuy.Domain;
 
-namespace WhereBy.Persistence.EntityTypeConfigurations
+namespace WhereBuy.Persistence.EntityTypeConfigurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

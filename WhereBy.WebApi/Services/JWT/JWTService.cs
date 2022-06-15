@@ -6,9 +6,9 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Domain;
+using WhereBuy.Domain;
 
-namespace WhereBy.WebApi.Services.JWT
+namespace WhereBuy.WebApi.Services.JWT
 {
     public class JWTService : IJWTService
     {

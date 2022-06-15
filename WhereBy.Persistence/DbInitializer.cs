@@ -1,4 +1,4 @@
-﻿namespace WhereBy.Persistence
+﻿namespace WhereBuy.Persistence
 {
     public class DbInitializer
     {

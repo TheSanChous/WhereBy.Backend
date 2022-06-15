@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Domain;
-using WhereBy.WebApi.Models.Auth;
-using WhereBy.WebApi.Services.Auth;
+using WhereBuy.Application.Common.Exceptions;
+using WhereBuy.Domain;
+using WhereBuy.WebApi.Models.Auth;
+using WhereBuy.WebApi.Services.Auth;
 
-namespace WhereBy.WebApi.Controllers
+namespace WhereBuy.WebApi.Controllers
 {
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]

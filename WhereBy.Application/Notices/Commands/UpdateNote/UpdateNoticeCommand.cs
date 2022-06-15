@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace WhereBy.Application.Notices.Commands.UpdateNote
+namespace WhereBuy.Application.Notices.Commands.UpdateNote
 {
     public class UpdateNoticeCommand : IRequest
     {

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Shops.Queries.GetShopList
+namespace WhereBuy.Application.Shops.Queries.GetShopList
 {
     public class ShopLookupDto : IMapWith<Shop>
     {

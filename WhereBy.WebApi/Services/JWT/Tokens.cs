@@ -1,4 +1,4 @@
-﻿namespace WhereBy.WebApi.Services.JWT
+﻿namespace WhereBuy.WebApi.Services.JWT
 {
     public class Tokens
     {

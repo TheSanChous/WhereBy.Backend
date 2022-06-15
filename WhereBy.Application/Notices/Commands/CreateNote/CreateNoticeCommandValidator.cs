@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentValidation;
 
-namespace WhereBy.Application.Notices.Commands.CreateNote
+namespace WhereBuy.Application.Notices.Commands.CreateNote
 {
     public class CreateNoticeCommandValidator : AbstractValidator<CreateNoticeCommand>
     {

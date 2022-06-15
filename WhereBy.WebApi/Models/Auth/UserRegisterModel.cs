@@ -1,4 +1,4 @@
-﻿namespace WhereBy.WebApi.Models.Auth
+﻿namespace WhereBuy.WebApi.Models.Auth
 {
     public class UserRegisterModel
     {

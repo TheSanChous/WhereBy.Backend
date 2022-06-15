@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System;
-using WhereBy.Application.Common.Mappings;
-using WhereBy.Domain;
+using WhereBuy.Application.Common.Mappings;
+using WhereBuy.Domain;
 
-namespace WhereBy.Application.Notices.Queries.GetNoteList
+namespace WhereBuy.Application.Notices.Queries.GetNoteList
 {
     public class NoticeLookupDto : IMapWith<Notice>
     {
