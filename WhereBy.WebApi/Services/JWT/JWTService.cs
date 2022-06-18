@@ -12,7 +12,9 @@ namespace WhereBuy.WebApi.Services.JWT
 {
     public class JWTService : IJWTService
     {
-        private readonly IConfiguration configuration;
+		private const string PointsClaimName = "Points";
+
+		private readonly IConfiguration configuration;
 
         public JWTService(IConfiguration configuration)
         {
@@ -28,9 +30,12 @@ namespace WhereBuy.WebApi.Services.JWT
 				Subject = new ClaimsIdentity(new Claim[]
 				{
 					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-					new Claim(ClaimTypes.Email, user.Email)
+					new Claim(ClaimTypes.Name, user.Name),
+					new Claim(ClaimTypes.Email, user.Email),
+					new Claim(ClaimTypes.MobilePhone, user.Phone),
+					new Claim(PointsClaimName, user.Points.ToString()),
 				}),
-				Expires = DateTime.UtcNow.AddMinutes(10),
+				Expires = DateTime.UtcNow.AddHours(12),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
 			};
 			var token = tokenHandler.CreateToken(tokenDescriptor);
