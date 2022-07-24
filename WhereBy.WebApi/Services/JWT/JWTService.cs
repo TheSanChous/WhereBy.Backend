@@ -32,7 +32,7 @@ namespace WhereBuy.WebApi.Services.JWT
 					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
 					new Claim(ClaimTypes.Name, user.Name),
 					new Claim(ClaimTypes.Email, user.Email),
-					new Claim(ClaimTypes.MobilePhone, user.Phone),
+					//new Claim(ClaimTypes.MobilePhone, user.Phone),
 					new Claim(PointsClaimName, user.Points.ToString()),
 				}),
 				Expires = DateTime.UtcNow.AddHours(12),

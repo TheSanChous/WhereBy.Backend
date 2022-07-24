@@ -1,14 +1,10 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using WhereBy.Application.Interfaces;
-using WhereBy.Domain;
+using WhereBuy.Application.Interfaces;
+using WhereBuy.Domain;
 
 namespace WhereBuy.WebApi.Services
 {

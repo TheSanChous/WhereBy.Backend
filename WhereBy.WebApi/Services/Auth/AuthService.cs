@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WhereBuy.Application.Common.Exceptions;
@@ -62,6 +63,7 @@ namespace WhereBuy.WebApi.Services.Auth
             {
                 Email = registerModel.Email,
                 PasswordHash = passwordHash,
+                Name = registerModel.Email.Split("@").First(),
                 Points = 0
             };
 
