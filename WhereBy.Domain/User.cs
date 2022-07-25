@@ -16,5 +16,6 @@ namespace WhereBy.Domain
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public int Points { get; set; }
+        public int VerificationCode { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace WhereBy.Persistence.EntityTypeConfigurations
             builder.Property(user => user.PasswordHash);
             builder.Property(user => user.PasswordSalt);
             builder.Property(user => user.Points);
+            builder.Property(user => user.VerificationCode);
         }
     }
 }

@@ -39,6 +39,11 @@ namespace WhereBy.WebApi.Services.Auth
             return await jWTService.GetTokensAsync(user, cancellationToken);
         }
 
+        public async Task<Tokens> ValidateVereficationCode(string code, CancellationToken cancellationToken)
+        {
+            return null;
+        } 
+
         public async Task<Tokens> RegisterUserAsync(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
             var user = await databaseContext.Users
