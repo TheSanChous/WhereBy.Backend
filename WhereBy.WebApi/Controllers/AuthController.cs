@@ -24,46 +24,14 @@ namespace WhereBy.WebApi.Controllers
             this.authService = authService;
         }
 
-        /// <summary>
-        /// Login user
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        /// POST /login
-        /// {
-        ///     email: "user email",
-        ///     password: "user password"
-        /// }
-        /// </remarks>
-        /// <returns>Returns token (string)</returns>
-        /// <response code="201">Success</response>
-        /// <response code="401">If the user is unauthorized</response>
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<string>> Login(UserLoginModel loginModel, CancellationToken cancellationToken)
         {
             var tokens = await authService.LoginUserAsync(loginModel, cancellationToken);
             return tokens.Token;
         }
-
-        /// <summary>
-        /// Register user
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        /// POST /register
-        /// {
-        ///     email: "user email",
-        ///     password: "user password"
-        /// }
-        /// </remarks>
-        /// <returns>Returns token (string)</returns>
-        /// <response code="201">Success</response>
-        /// <response code="401">If the user is unauthorized</response>
+        
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<string>> Register(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
             var tokens = await authService.RegisterUserAsync(registerModel, cancellationToken);
