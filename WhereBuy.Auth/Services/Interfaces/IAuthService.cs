@@ -1,8 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using WhereBuy.Domain;
-using WhereBuy.Auth.Models;
-using WhereBuy.Auth.Services;
+﻿using WhereBuy.Auth.Models;
 
 namespace WhereBuy.Auth
 {

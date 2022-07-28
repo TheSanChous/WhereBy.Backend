@@ -1,8 +1,8 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 using System.Threading.Tasks;
-using WhereBuy.Common.Abstractions;
 using WhereBuy.Application.Configuration;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBuy.Application.Common.Services.Mail
 {

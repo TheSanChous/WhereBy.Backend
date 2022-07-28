@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using WhereBuy.Application.Common.Mappings;
 using WhereBuy.Domain;
 

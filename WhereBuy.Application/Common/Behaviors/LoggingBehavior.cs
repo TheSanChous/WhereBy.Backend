@@ -1,7 +1,7 @@
-﻿using Serilog;
+﻿using MediatR;
+using Serilog;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using WhereBuy.Common.Abstractions;
 
 namespace WhereBuy.Application.Common.Behaviors

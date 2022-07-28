@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WhereBuy.Common.Abstractions;
 using WhereBuy.Auth.Services;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBuy.Auth
 {

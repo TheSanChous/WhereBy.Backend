@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBuy.Application.Common.Exceptions;
 using WhereBuy.Application.Notices.Queries.GetNoteDetails;
-using WhereBuy.Domain;
 using WhereBuy.Common.Abstractions;
 using WhereBuy.Common.Errors;
+using WhereBuy.Domain;
 
 namespace WhereBuy.Application.Notices.Commands.CreateNote
 {

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using WhereBuy.Common.Errors;
 using WhereBuy.Application.Common.Exceptions;
 using WhereBuy.Auth.Common.Exceptions;
+using WhereBuy.Common.Errors;
 using WhereBuy.WebApi.Models;
 
 namespace WhereBuy.WebApi.Middleware

@@ -1,5 +1,4 @@
-﻿using System;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace WhereBuy.Application.Notices.Queries.GetNoteDetails
 {

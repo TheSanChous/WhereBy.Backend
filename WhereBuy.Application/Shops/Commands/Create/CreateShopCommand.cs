@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WhereBuy.Application.Common.Mappings;
 using WhereBuy.Application.Shops.Queries.GetShopList;
 using WhereBuy.Domain;

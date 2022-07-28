@@ -1,5 +1,4 @@
-﻿using System;
-using MediatR;
+﻿using MediatR;
 using WhereBuy.Application.Notices.Queries.GetNoteDetails;
 
 namespace WhereBuy.Application.Notices.Commands.CreateNote

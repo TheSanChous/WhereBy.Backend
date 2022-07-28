@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using System.ComponentModel.DataAnnotations;
 using WhereBuy.Application.Common.Mappings;
 using WhereBuy.Application.Notices.Commands.CreateNote;
-using System.ComponentModel.DataAnnotations;
 
 namespace WhereBuy.WebApi.Models
 {

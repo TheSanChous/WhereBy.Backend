@@ -1,13 +1,8 @@
-﻿using IdentityServer4.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBuy.Application.Common.Exceptions;
 using WhereBuy.Auth;
 using WhereBuy.Auth.Models;
-using WhereBuy.Domain;
 using WhereBuy.WebApi.Models;
 
 namespace WhereBuy.WebApi.Controllers

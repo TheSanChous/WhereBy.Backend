@@ -1,17 +1,9 @@
 ﻿using AutoMapper;
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using WhereBuy.Application.Notices.Queries.GetNoteList;
-using WhereBuy.Application.Notices.Queries.GetNoteDetails;
-using WhereBuy.Application.Notices.Commands.CreateNote;
-using WhereBuy.Application.Notices.Commands.UpdateNote;
-using WhereBuy.Application.Notices.Commands.DeleteCommand;
-using WhereBuy.WebApi.Models;
-using WhereBuy.Application.Shops.Queries.GetShopList;
+using System.Threading.Tasks;
 using WhereBuy.Application.Shops.Commands.Create;
+using WhereBuy.Application.Shops.Queries.GetShopList;
 
 namespace WhereBuy.WebApi.Controllers
 {

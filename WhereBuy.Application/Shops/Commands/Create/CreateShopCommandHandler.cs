@@ -3,11 +3,10 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBuy.Application.Common.Exceptions;
 using WhereBuy.Application.Shops.Queries.GetShopList;
-using WhereBuy.Domain;
 using WhereBuy.Common.Abstractions;
 using WhereBuy.Common.Errors;
+using WhereBuy.Domain;
 
 namespace WhereBuy.Application.Shops.Commands.Create
 {

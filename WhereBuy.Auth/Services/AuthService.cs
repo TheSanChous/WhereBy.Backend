@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WhereBuy.Common.Abstractions;
-using WhereBuy.Common.Errors;
 using WhereBuy.Auth.Common.Exceptions;
 using WhereBuy.Auth.Common.Helpers;
 using WhereBuy.Auth.Models;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 using WhereBuy.Domain;
 
 namespace WhereBuy.Auth.Services
