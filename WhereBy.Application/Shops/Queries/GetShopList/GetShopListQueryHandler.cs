@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Abstractions;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBy.Application.Shops.Queries.GetShopList
 {

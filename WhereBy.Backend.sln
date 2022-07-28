@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.Persistence", "Wher
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.WebApi", "WhereBy.WebApi\WhereBy.WebApi.csproj", "{25EE35FD-3E84-4F78-A0BC-4D9ABEC47F63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhereBy.Auth", "WhereBy.Auth\WhereBy.Auth.csproj", "{AC36CC62-B566-47D4-840C-93E9742ACDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBy.Auth", "WhereBy.Auth\WhereBy.Auth.csproj", "{AC36CC62-B566-47D4-840C-93E9742ACDD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhereBuy.Abstractions", "WhereBuy.Abstractions\WhereBuy.Abstractions.csproj", "{952535C3-C8FA-4E8C-82BC-92941AEEA2CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhereBuy.Common", "WhereBuy.Abstractions\WhereBuy.Common.csproj", "{952535C3-C8FA-4E8C-82BC-92941AEEA2CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

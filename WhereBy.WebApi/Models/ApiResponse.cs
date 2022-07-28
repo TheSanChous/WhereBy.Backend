@@ -5,7 +5,7 @@ namespace WhereBy.WebApi.Models
     public class ApiResponseError
     {
         public string Message { get; set; }
-        public string Code { get; set; }
+        public int? Code { get; set; }
     }
 
     public class ApiResponse : ActionResult

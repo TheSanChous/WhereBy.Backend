@@ -10,8 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
@@ -19,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WhereBuy.Abstractions\WhereBuy.Abstractions.csproj" />
+    <ProjectReference Include="..\WhereBuy.Abstractions\WhereBuy.Common.csproj" />
     <ProjectReference Include="..\WhereBy.Application\WhereBy.Application.csproj" />
     <ProjectReference Include="..\WhereBy.Auth\WhereBy.Auth.csproj" />
     <ProjectReference Include="..\WhereBy.Persistence\WhereBy.Persistence.csproj" />

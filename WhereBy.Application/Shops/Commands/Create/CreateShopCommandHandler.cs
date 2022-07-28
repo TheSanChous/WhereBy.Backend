@@ -3,10 +3,11 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Application.Shops.Queries.GetShopList;
 using WhereBy.Domain;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 
 namespace WhereBy.Application.Shops.Commands.Create
 {
@@ -30,7 +31,7 @@ namespace WhereBy.Application.Shops.Commands.Create
 
             if (matches > 0)
             {
-                throw new BadRequestException("SHOP_ALREADY_EXIST");
+                throw AppErrors.EntityExists.Create(nameof(Shop));
             }
 
             var shop = mapper.Map<Shop>(request);

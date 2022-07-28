@@ -1,12 +1,11 @@
-﻿using System.Reflection;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using FluentValidation;
+using System.Reflection;
+using WhereBuy.Common.Abstractions;
 using WhereBy.Application.Common.Behaviors;
-using WhereBy.Application.Interfaces;
 using WhereBy.Application.Common.Services.Mail;
 using WhereBy.Application.Configuration;
-using System.Net;
 
 namespace WhereBy.Application
 {
@@ -22,8 +21,8 @@ namespace WhereBy.Application
                 .AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
             services.AddTransient(typeof(IPipelineBehavior<,>),
                 typeof(ValidationBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>),
-                typeof(LoggingBehavior<,>));
+            //services.AddTransient(typeof(IPipelineBehavior<,>),
+            //    typeof(LoggingBehavior<,>));
 
             services.AddScoped<IMailService, MailService>();
 

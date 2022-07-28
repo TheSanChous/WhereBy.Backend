@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WhereBy.Domain;
 
-namespace WhereBy.Abstractions
+namespace WhereBuy.Common.Abstractions
 {
     public interface IDatabaseContext
     {

@@ -3,9 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Domain;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 
 namespace WhereBy.Application.Notices.Commands.UpdateNote
 {
@@ -26,7 +27,7 @@ namespace WhereBy.Application.Notices.Commands.UpdateNote
 
             if (entity == null)
             {
-                throw new NotFoundException(nameof(Notice), request.Id);
+                throw AppErrors.NotFound.Create(nameof(Notice), request.Id.ToString());
             }
 
             entity.Description = request.Description;

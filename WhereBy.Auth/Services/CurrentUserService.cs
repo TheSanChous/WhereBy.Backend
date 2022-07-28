@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
-using WhereBy.Abstractions;
+using WhereBuy.Common.Abstractions;
 using WhereBy.Domain;
 
 namespace WhereBy.Auth.Services

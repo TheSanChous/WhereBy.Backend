@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Application.Notices.Queries.GetNoteDetails;
 using WhereBy.Domain;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 
 namespace WhereBy.Application.Notices.Commands.CreateNote
 {
@@ -31,7 +32,7 @@ namespace WhereBy.Application.Notices.Commands.CreateNote
 
             if (shop is null)
             {
-                throw new NotFoundException(typeof(Shop).Name, request.ShopId);
+                throw AppErrors.NotFound.Create(nameof(Shop), request.ShopId.ToString());
             }
 
             var notice = new Notice

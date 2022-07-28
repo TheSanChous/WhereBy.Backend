@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WhereBy.Abstractions;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBy.Persistence
 {
