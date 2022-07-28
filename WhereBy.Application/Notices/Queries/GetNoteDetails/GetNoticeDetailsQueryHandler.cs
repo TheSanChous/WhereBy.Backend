@@ -1,9 +1,9 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
-using WhereBy.Application.Interfaces;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
+using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Domain;
 

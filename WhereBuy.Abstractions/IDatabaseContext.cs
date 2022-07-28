@@ -1,9 +1,7 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WhereBy.Domain;
 
-namespace WhereBy.Application.Interfaces
+namespace WhereBy.Abstractions
 {
     public interface IDatabaseContext
     {

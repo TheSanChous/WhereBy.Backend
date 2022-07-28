@@ -1,13 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WhereBy.Application.Interfaces;
-using WhereBy.WebApi.Services.Auth;
-using WhereBy.WebApi.Services.JWT;
+using WhereBy.Abstractions;
+using WhereBy.Auth.Services;
 
-namespace WhereBy.WebApi.Services
+namespace WhereBy.Auth
 {
     public static class DependecyInjection
     {
-        public static IServiceCollection AddWebApiServices(this IServiceCollection services)
+        public static IServiceCollection AddAuthServices(this IServiceCollection services)
         {
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<IAuthService, AuthService>();

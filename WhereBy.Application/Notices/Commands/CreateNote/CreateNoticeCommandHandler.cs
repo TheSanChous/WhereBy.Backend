@@ -1,13 +1,12 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
 using WhereBy.Application.Notices.Queries.GetNoteDetails;
-using WhereBy.Application.Notices.Queries.GetNoteList;
 using WhereBy.Domain;
 
 namespace WhereBy.Application.Notices.Commands.CreateNote

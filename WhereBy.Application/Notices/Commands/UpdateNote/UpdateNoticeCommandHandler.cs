@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
+using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Domain;
 

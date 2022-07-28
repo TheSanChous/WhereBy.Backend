@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using WhereBy.Application.Interfaces;
+using WhereBy.Abstractions;
 
 namespace WhereBy.Application.Common.Behaviors
 {

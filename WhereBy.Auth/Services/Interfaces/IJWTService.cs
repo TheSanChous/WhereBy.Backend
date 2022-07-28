@@ -1,8 +1,7 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using WhereBy.Auth.Models;
 using WhereBy.Domain;
 
-namespace WhereBy.WebApi.Services.JWT
+namespace WhereBy.Auth
 {
     public interface IJWTService
     {

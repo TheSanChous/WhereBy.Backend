@@ -1,7 +1,7 @@
-﻿using System.Threading;
+﻿using MediatR;
+using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
-using WhereBy.Application.Interfaces;
+using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Domain;
 

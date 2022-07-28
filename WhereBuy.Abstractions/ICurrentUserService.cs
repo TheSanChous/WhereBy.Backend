@@ -1,7 +1,4 @@
-﻿using System;
-using WhereBy.Domain;
-
-namespace WhereBy.Application.Interfaces
+﻿namespace WhereBy.Abstractions
 {
     public interface ICurrentUserService
     {

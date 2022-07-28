@@ -1,16 +1,10 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using WhereBy.Application.Interfaces;
+using System.Security.Claims;
+using WhereBy.Abstractions;
 using WhereBy.Domain;
 
-namespace WhereBy.WebApi.Services
+namespace WhereBy.Auth.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

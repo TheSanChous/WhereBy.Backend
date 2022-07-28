@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WhereBy.Abstractions;
 using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
 using WhereBy.Application.Shops.Queries.GetShopList;
 using WhereBy.Domain;
 
