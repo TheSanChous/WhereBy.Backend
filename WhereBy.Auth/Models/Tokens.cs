@@ -1,4 +1,4 @@
-﻿namespace WhereBy.WebApi.Services.JWT
+﻿namespace WhereBy.Auth.Models
 {
     public class Tokens
     {

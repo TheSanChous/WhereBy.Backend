@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using WhereBy.Domain;
-using WhereBy.WebApi.Models.Auth;
-using WhereBy.WebApi.Services.JWT;
+using WhereBy.Auth.Models;
+using WhereBy.Auth.Services;
 
-namespace WhereBy.WebApi.Services.Auth
+namespace WhereBy.Auth
 {
     public interface IAuthService
     {

@@ -1,6 +1,6 @@
-﻿namespace WhereBy.WebApi.Models.Auth
+﻿namespace WhereBy.Auth.Models
 {
-    public class UserLoginModel
+    public class UserRegisterModel
     {
         public string Email { get; set; }
         public string Password { get; set; }

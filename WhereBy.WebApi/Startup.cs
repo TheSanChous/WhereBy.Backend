@@ -10,12 +10,12 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
+using WhereBy.Abstractions;
 using WhereBy.Application;
 using WhereBy.Application.Common.Mappings;
-using WhereBy.Application.Interfaces;
+using WhereBy.Auth;
 using WhereBy.Persistence;
 using WhereBy.WebApi.Middleware;
-using WhereBy.WebApi.Services;
 
 namespace WhereBy.WebApi
 {
@@ -30,7 +30,7 @@ namespace WhereBy.WebApi
             services.AddAutoMapper(config =>
             {
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-                config.AddProfile(new AssemblyMappingProfile(typeof(IDatabaseContext).Assembly));
+                config.AddProfile(new AssemblyMappingProfile(typeof(AssemblyMappingProfile).Assembly));
             });
 
             services.AddApplication();
@@ -68,34 +68,19 @@ namespace WhereBy.WebApi
                 });
             });
 
-            services.AddVersionedApiExplorer(options =>
-                options.GroupNameFormat = "'v'VVV");
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>,
-                    ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
-            services.AddApiVersioning();
-            services.AddWebApiServices();
+            services.AddAuthServices();
             services.AddHttpContextAccessor();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            IApiVersionDescriptionProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             app.UseSwagger();
-            app.UseSwaggerUI(config =>
-            {
-                foreach (var description in provider.ApiVersionDescriptions)
-                {
-                    config.SwaggerEndpoint(
-                        $"/swagger/{description.GroupName}/swagger.json",
-                        description.GroupName.ToUpperInvariant());
-                    config.RoutePrefix = string.Empty;
-                }
-            });
+            app.UseSwaggerUI();
 
             app.UseResponseWrapper();
             app.UseCustomExceptionHandler();
@@ -106,8 +91,6 @@ namespace WhereBy.WebApi
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseApiVersioning();
 
             app.UseEndpoints(endpoints =>
             {
