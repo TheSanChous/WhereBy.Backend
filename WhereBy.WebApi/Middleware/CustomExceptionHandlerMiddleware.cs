@@ -5,6 +5,10 @@ using System.Text.Json;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using WhereBy.Application.Common.Exceptions;
+using WhereBy.WebApi.Models;
+using Microsoft.Toolkit.HighPerformance.Extensions;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace WhereBy.WebApi.Middleware
 {
@@ -27,10 +31,10 @@ namespace WhereBy.WebApi.Middleware
             }
         }
 
-        private Task HandleExceptionAsync(HttpContext context, Exception exception)
+        private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;
-            var result = string.Empty;
+
             switch(exception)
             {
                 case ValidationException or BadRequestException:
@@ -42,28 +46,25 @@ namespace WhereBy.WebApi.Middleware
                 case UnauthorizedException:
                     code = HttpStatusCode.Unauthorized;
                     code = HttpStatusCode.BadRequest;
-                    result = JsonSerializer.Serialize(
-                    new
-                    {
-                        code = code,
-                        detail = exception.Message ?? "UNAUTHORIZED"
-                    });
                     break;
             }
-            context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)code;
 
-            if (result == string.Empty)
+            context.Items["Error"] = new ApiResponseError
             {
-                result = JsonSerializer.Serialize(
-                new
-                { 
-                    code = code,
-                    detail = exception.Message
-                });
-            }
+                Code = null,
+                Message = GetExceptionDetails(exception)
+            };
 
-            return context.Response.WriteAsync(result);
+            context.Response.StatusCode = (int)code;
         }
+
+        private string GetExceptionDetails(Exception exception, string before = "")
+        {
+            if(exception.InnerException != null)
+            {
+                return GetExceptionDetails(exception.InnerException, exception.Message + " ");
+            }
+            return before + exception.Message;
+        } 
     }
 }

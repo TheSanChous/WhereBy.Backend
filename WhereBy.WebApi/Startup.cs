@@ -96,7 +96,10 @@ namespace WhereBy.WebApi
                     config.RoutePrefix = string.Empty;
                 }
             });
+
+            app.UseResponseWrapper();
             app.UseCustomExceptionHandler();
+
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
@@ -105,6 +108,7 @@ namespace WhereBy.WebApi
             app.UseAuthorization();
 
             app.UseApiVersioning();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
