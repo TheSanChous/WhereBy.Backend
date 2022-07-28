@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
+using System.Threading;
+using System.Threading.Tasks;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBy.Application.Notices.Queries.GetNoteList
 {

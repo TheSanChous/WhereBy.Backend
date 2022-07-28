@@ -1,13 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using WhereBy.Application.Interfaces;
-using WhereBy.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using WhereBuy.Common.Abstractions;
+using WhereBy.Domain;
 
 namespace WhereBy.Persistence
 {

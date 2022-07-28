@@ -1,14 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Net;
-using System.Text.Json;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Http;
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using WhereBuy.Common.Errors;
 using WhereBy.Application.Common.Exceptions;
+using WhereBy.Auth.Common.Exceptions;
 using WhereBy.WebApi.Models;
-using Microsoft.Toolkit.HighPerformance.Extensions;
-using System.IO;
-using Newtonsoft.Json;
 
 namespace WhereBy.WebApi.Middleware
 {
@@ -49,9 +47,11 @@ namespace WhereBy.WebApi.Middleware
                     break;
             }
 
+            var appError = exception as AppError;
+
             context.Items["Error"] = new ApiResponseError
             {
-                Code = null,
+                Code = appError is not null ? appError.Code : null,
                 Message = GetExceptionDetails(exception)
             };
 

@@ -1,11 +1,12 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
-using WhereBy.Application.Interfaces;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Domain;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 
 namespace WhereBy.Application.Notices.Queries.GetNoteDetails
 {
@@ -27,7 +28,7 @@ namespace WhereBy.Application.Notices.Queries.GetNoteDetails
 
             if (entity == null)
             {
-                throw new NotFoundException(nameof(Notice), request.Id);
+                throw AppErrors.NotFound.Create(nameof(Notice), request.Id.ToString());
             }
 
             return _mapper.Map<NoticeDetailsVm>(entity);

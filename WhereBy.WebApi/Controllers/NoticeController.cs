@@ -13,61 +13,55 @@ using WhereBy.WebApi.Models;
 
 namespace WhereBy.WebApi.Controllers
 {
+    [Authorize]
     public class NoticeController : BaseController
     {
         private readonly IMapper _mapper;
 
         public NoticeController(IMapper mapper) => _mapper = mapper;
 
-        [Authorize]
         [HttpGet]
-        public async Task<ActionResult<NoticeListVm>> GetAll()
+        public async Task<NoticeListVm> GetAll()
         {
             var query = new GetNoticeListQuery();
             var vm = await Mediator.Send(query);
-            return Ok(vm);
+            return vm;
         }
 
-        [Authorize]
         [HttpGet("{id}")]
-        public async Task<ActionResult<NoticeDetailsVm>> Get(int id)
+        public async Task<NoticeDetailsVm> Get(int id)
         {
             var query = new GetNoticeDetailsQuery
             {
                 Id = id
             };
             var vm = await Mediator.Send(query);
-            return Ok(vm);
+            return vm;
         }
 
-        [Authorize]
         [HttpPost]
-        public async Task<ActionResult<NoticeDetailsVm>> Create([FromBody] CreateNoticeDto createNoteDto)
+        public async Task<NoticeDetailsVm> Create([FromBody] CreateNoticeDto createNoteDto)
         {
             var command = _mapper.Map<CreateNoticeCommand>(createNoteDto);
             var note = await Mediator.Send(command);
-            return Ok(note);
+            return note;
         }
 
-        [Authorize]
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateNoteDto updateNoteDto)
+        public async Task Update([FromBody] UpdateNoteDto updateNoteDto)
         {
             var command = _mapper.Map<UpdateNoticeCommand>(updateNoteDto);
             await Mediator.Send(command);
-            return NoContent();
         }
 
-        [Authorize]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task Delete(int id)
         {
             var command = new DeleteNoticeCommand
             {
                 Id = id
             };
             await Mediator.Send(command);
-            return NoContent();
         }
     }
 }

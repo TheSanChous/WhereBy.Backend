@@ -16,7 +16,6 @@ using WhereBy.Application.Shops.Commands.Create;
 namespace WhereBy.WebApi.Controllers
 {
     [Authorize]
-    [Route("api/{version:apiVersion}/[controller]")]
     public class ShopController : BaseController
     {
         private readonly IMapper _mapper;
