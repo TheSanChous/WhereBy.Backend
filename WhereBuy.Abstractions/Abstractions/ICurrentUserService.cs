@@ -1,4 +1,4 @@
-﻿using WhereBy.Domain;
+﻿using WhereBuy.Domain;
 
 namespace WhereBuy.Common.Abstractions
 {
