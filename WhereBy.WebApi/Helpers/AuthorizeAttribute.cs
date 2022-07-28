@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
+using WhereBy.Abstractions;
+using WhereBy.Auth.Common.Exceptions;
 
 namespace WhereBy.WebApi.Helpers
 {

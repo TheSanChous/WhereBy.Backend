@@ -5,16 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
 using WhereBy.Application.Common.Exceptions;
+using WhereBy.Auth;
+using WhereBy.Auth.Models;
 using WhereBy.Domain;
-using WhereBy.WebApi.Models.Auth;
-using WhereBy.WebApi.Services.Auth;
+using WhereBy.WebApi.Models;
 
 namespace WhereBy.WebApi.Controllers
 {
-    [ApiVersion("1.0")]
-    [ApiVersion("2.0")]
-    [Produces("application/json")]
-    [Route("api/{version:apiVersion}/[controller]")]
     public class AuthController : BaseController
     {
         private readonly IAuthService authService;
@@ -24,50 +21,24 @@ namespace WhereBy.WebApi.Controllers
             this.authService = authService;
         }
 
-        /// <summary>
-        /// Login user
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        /// POST /login
-        /// {
-        ///     email: "user email",
-        ///     password: "user password"
-        /// }
-        /// </remarks>
-        /// <returns>Returns token (string)</returns>
-        /// <response code="201">Success</response>
-        /// <response code="401">If the user is unauthorized</response>
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<string>> Login(UserLoginModel loginModel, CancellationToken cancellationToken)
+        public async Task<TokenResponse> Login(UserLoginModel loginModel, CancellationToken cancellationToken)
         {
             var tokens = await authService.LoginUserAsync(loginModel, cancellationToken);
-            return tokens.Token;
+            return new TokenResponse
+            {
+                Token = tokens.Token
+            };
         }
-
-        /// <summary>
-        /// Register user
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        /// POST /register
-        /// {
-        ///     email: "user email",
-        ///     password: "user password"
-        /// }
-        /// </remarks>
-        /// <returns>Returns token (string)</returns>
-        /// <response code="201">Success</response>
-        /// <response code="401">If the user is unauthorized</response>
+        
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<string>> Register(UserRegisterModel registerModel, CancellationToken cancellationToken)
+        public async Task<TokenResponse> Register(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
             var tokens = await authService.RegisterUserAsync(registerModel, cancellationToken);
-            return tokens.Token;
+            return new TokenResponse
+            {
+                Token = tokens.Token
+            };
         }
     }
 }

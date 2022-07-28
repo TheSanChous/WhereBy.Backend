@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using WhereBy.Application.Common.Exceptions;
-using WhereBy.Application.Interfaces;
+using WhereBy.Abstractions;
+using WhereBy.Auth.Common.Exceptions;
+using WhereBy.Auth.Common.Helpers;
+using WhereBy.Auth.Models;
 using WhereBy.Domain;
-using WhereBy.WebApi.Helpers;
-using WhereBy.WebApi.Models.Auth;
-using WhereBy.WebApi.Services.JWT;
 
-namespace WhereBy.WebApi.Services.Auth
+namespace WhereBy.Auth.Services
 {
     public class AuthService : IAuthService
     {

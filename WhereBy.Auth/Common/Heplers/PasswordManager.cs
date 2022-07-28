@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhereBy.WebApi.Helpers
+namespace WhereBy.Auth.Common.Helpers
 {
     public static class PasswordManager
     {
