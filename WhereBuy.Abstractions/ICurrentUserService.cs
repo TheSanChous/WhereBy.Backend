@@ -1,7 +1,13 @@
-﻿namespace WhereBy.Abstractions
+﻿using WhereBy.Domain;
+
+namespace WhereBy.Abstractions
 {
     public interface ICurrentUserService
     {
-        int UserId { get; }
+        bool IsAuthenticated { get; }
+        User? User { get; } 
+        int? UserId { get; }
+        string? Email { get; }
+        int? Points { get;  }
     }
 }

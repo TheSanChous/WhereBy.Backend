@@ -20,26 +20,23 @@ namespace WhereBy.Auth.Services
             this.databaseContext = databaseContext;
         }
 
-        public int UserId
-        {
-            get
-            {
-                return GetUserIdFromHttpContext();
-            }
-        }
+        public int? UserId => IsAuthenticated
+            ? int.Parse(httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier))
+            : null;
 
-        public User User
-        {
-            get
-            {
-                return databaseContext.Users.FirstOrDefault(u => u.Id == UserId);
-            }
-        }
+        public User? User => IsAuthenticated
+            ? databaseContext.Users.FirstOrDefault(u => u.Id == UserId)
+            : null;
 
-        private int GetUserIdFromHttpContext()
-        {
-            return int.Parse(httpContextAccessor.HttpContext.User
-                .FindFirstValue(ClaimTypes.NameIdentifier));
-        }
+        public string? Email => IsAuthenticated
+            ? httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            : null;
+
+
+        public int? Points => IsAuthenticated
+            ? int.Parse(httpContextAccessor.HttpContext.User.FindFirstValue("Points"))
+            : null;
+
+        public bool IsAuthenticated => httpContextAccessor.HttpContext.User is not null;
     }
 }
