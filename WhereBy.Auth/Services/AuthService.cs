@@ -11,11 +11,13 @@ namespace WhereBy.Auth.Services
     {
         private readonly IJWTService jWTService;
         private readonly IDatabaseContext databaseContext;
+        private readonly IMailService mail;
 
-        public AuthService(IJWTService jWTService, IDatabaseContext databaseContext)
+        public AuthService(IJWTService jWTService, IDatabaseContext databaseContext, IMailService mail)
         {
             this.jWTService = jWTService;
             this.databaseContext = databaseContext;
+            this.mail = mail;
         }
         public async Task<Tokens> LoginUserAsync(UserLoginModel loginModel, CancellationToken cancellationToken)
         {
@@ -32,8 +34,15 @@ namespace WhereBy.Auth.Services
                 throw new UnauthorizedException("WRONG_PASSWORD");
             }
 
+            await mail.SendCodeAsync(user.Email, (new Random()).Next(1000, 9999));
+
             return await jWTService.GetTokensAsync(user, cancellationToken);
         }
+
+        public async Task<Tokens> ValidateVereficationCode(string code, CancellationToken cancellationToken)
+        {
+            return null;
+        } 
 
         public async Task<Tokens> RegisterUserAsync(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
