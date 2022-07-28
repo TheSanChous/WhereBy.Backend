@@ -17,7 +17,7 @@ namespace WhereBy.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
+                .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -98,6 +98,9 @@ namespace WhereBy.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("Points")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("VerificationCode")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WhereBy.Abstractions;
+using WhereBuy.Common.Abstractions;
 using WhereBy.Auth.Services;
 
 namespace WhereBy.Auth

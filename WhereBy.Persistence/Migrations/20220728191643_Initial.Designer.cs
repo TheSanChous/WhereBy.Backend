@@ -12,14 +12,14 @@ using WhereBy.Persistence;
 namespace WhereBy.Persistence.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220414162534_initial")]
-    partial class initial
+    [Migration("20220728191643_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
+                .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -100,6 +100,9 @@ namespace WhereBy.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("Points")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("VerificationCode")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

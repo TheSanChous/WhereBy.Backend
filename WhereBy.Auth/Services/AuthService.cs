@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WhereBy.Abstractions;
+using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Errors;
 using WhereBy.Auth.Common.Exceptions;
 using WhereBy.Auth.Common.Helpers;
 using WhereBy.Auth.Models;
@@ -26,12 +27,12 @@ namespace WhereBy.Auth.Services
 
             if (user == null)
             {
-                throw new UnauthorizedException("USER_NOT_FOUND");
+                throw AppErrors.UserNotFound;
             }
 
             if (user.PasswordHash != await PasswordManager.GetPasswordHashAsync(loginModel.Password))
             {
-                throw new UnauthorizedException("WRONG_PASSWORD");
+                throw AppErrors.WrongPassword;
             }
 
             await mail.SendCodeAsync(user.Email, (new Random()).Next(1000, 9999));

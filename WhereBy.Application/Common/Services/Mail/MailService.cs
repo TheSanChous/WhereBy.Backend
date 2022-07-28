@@ -1,13 +1,7 @@
-﻿using FluentEmail.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MailKit.Net.Smtp;
+﻿using MailKit.Net.Smtp;
 using MimeKit;
-using WhereBy.Application.Interfaces;
-using AutoMapper.Configuration;
+using System.Threading.Tasks;
+using WhereBuy.Common.Abstractions;
 using WhereBy.Application.Configuration;
 
 namespace WhereBy.Application.Common.Services.Mail

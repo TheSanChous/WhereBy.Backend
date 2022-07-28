@@ -1,13 +1,13 @@
 ﻿using WhereBy.Domain;
 
-namespace WhereBy.Abstractions
+namespace WhereBuy.Common.Abstractions
 {
     public interface ICurrentUserService
     {
         bool IsAuthenticated { get; }
-        User? User { get; } 
+        User? User { get; }
         int? UserId { get; }
         string? Email { get; }
-        int? Points { get;  }
+        int? Points { get; }
     }
 }

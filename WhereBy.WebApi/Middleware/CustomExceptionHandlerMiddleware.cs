@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using WhereBuy.Common.Errors;
 using WhereBy.Application.Common.Exceptions;
 using WhereBy.Auth.Common.Exceptions;
 using WhereBy.WebApi.Models;
@@ -46,9 +47,11 @@ namespace WhereBy.WebApi.Middleware
                     break;
             }
 
+            var appError = exception as AppError;
+
             context.Items["Error"] = new ApiResponseError
             {
-                Code = null,
+                Code = appError is not null ? appError.Code : null,
                 Message = GetExceptionDetails(exception)
             };
 

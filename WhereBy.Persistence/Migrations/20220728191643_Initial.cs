@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WhereBy.Persistence.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,7 +35,8 @@ namespace WhereBy.Persistence.Migrations
                     Email = table.Column<string>(type: "text", nullable: true),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     PasswordSalt = table.Column<string>(type: "text", nullable: true),
-                    Points = table.Column<int>(type: "integer", nullable: false)
+                    Points = table.Column<int>(type: "integer", nullable: false),
+                    VerificationCode = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
