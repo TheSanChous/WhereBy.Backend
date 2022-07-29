@@ -10,5 +10,6 @@
         public string PasswordSalt { get; set; }
         public int Points { get; set; }
         public int VerificationCode { get; set; }
+        public bool IsEmailConfirmed { get; set; }
     }
 }

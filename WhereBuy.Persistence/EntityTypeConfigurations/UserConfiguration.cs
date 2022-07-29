@@ -16,6 +16,7 @@ namespace WhereBuy.Persistence.EntityTypeConfigurations
             builder.Property(user => user.PasswordSalt);
             builder.Property(user => user.Points);
             builder.Property(user => user.VerificationCode);
+            builder.Property(user => user.IsEmailConfirmed);
         }
     }
 }

@@ -8,10 +8,10 @@
 
         public string EntityName { get; set; }
 
-        public AppError Create(string entityName)
+        public virtual AppError Create(string entityName)
         {
             EntityName = entityName;
-            return Create($"{EntityName} alrerady exists");
+            return base.Create($"{entityName} alrerady exists");
         }
     }
 }

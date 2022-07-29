@@ -13,7 +13,7 @@
         {
             EntityName = entityName;
             Key = key;
-            return Create($"{EntityName} with key {Key} not found");
+            return base.Create($"{EntityName} with key {Key} not found");
         }
     }
 }

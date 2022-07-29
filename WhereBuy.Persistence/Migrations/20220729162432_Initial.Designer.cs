@@ -12,7 +12,7 @@ using WhereBuy.Persistence;
 namespace WhereBuy.Persistence.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220728191643_Initial")]
+    [Migration("20220729162432_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace WhereBuy.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("WhereBy.Domain.Notice", b =>
+            modelBuilder.Entity("WhereBuy.Domain.Notice", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace WhereBuy.Persistence.Migrations
                     b.ToTable("Notices");
                 });
 
-            modelBuilder.Entity("WhereBy.Domain.Shop", b =>
+            modelBuilder.Entity("WhereBuy.Domain.Shop", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace WhereBuy.Persistence.Migrations
                     b.ToTable("Shops");
                 });
 
-            modelBuilder.Entity("WhereBy.Domain.User", b =>
+            modelBuilder.Entity("WhereBuy.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,6 +86,9 @@ namespace WhereBuy.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsEmailConfirmed")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -110,9 +113,9 @@ namespace WhereBuy.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WhereBy.Domain.Notice", b =>
+            modelBuilder.Entity("WhereBuy.Domain.Notice", b =>
                 {
-                    b.HasOne("WhereBy.Domain.Shop", "Shop")
+                    b.HasOne("WhereBuy.Domain.Shop", "Shop")
                         .WithMany()
                         .HasForeignKey("ShopId");
 
