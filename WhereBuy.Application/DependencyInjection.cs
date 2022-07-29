@@ -4,8 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using WhereBuy.Application.Common.Behaviors;
 using WhereBuy.Application.Common.Services.Mail;
-using WhereBuy.Application.Configuration;
 using WhereBuy.Common.Abstractions;
+using WhereBuy.Common.Configuration;
 
 namespace WhereBuy.Application
 {
