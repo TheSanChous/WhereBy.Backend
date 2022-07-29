@@ -12,7 +12,7 @@
         public int Code { get; set; }
         public string Name { get; set; }
 
-        public AppError Create(string name)
+        public virtual AppError Create(string name)
         {
             return new AppError(Code, name);
         }
