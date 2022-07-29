@@ -16,11 +16,14 @@ namespace WhereBuy.Application.Notices.Commands.CreateNote
     {
         private readonly IDatabaseContext _dbContext;
         private readonly IMapper mapper;
+        private readonly ICurrentUserService currentUserService;
 
-        public CreateNoticeCommandHandler(IDatabaseContext dbContext, IMapper mapper)
+        public CreateNoticeCommandHandler(IDatabaseContext dbContext, IMapper mapper,
+            ICurrentUserService currentUserService)
         {
             _dbContext = dbContext;
             this.mapper = mapper;
+            this.currentUserService = currentUserService;
         }
 
         public async Task<NoticeDetailsVm> Handle(CreateNoticeCommand request,
@@ -38,6 +41,7 @@ namespace WhereBuy.Application.Notices.Commands.CreateNote
             {
                 Shop = shop,
                 Description = request.Description,
+                Creator = currentUserService.User,
                 Created = DateTime.Now.ToString("yyyy-MM-dd"),
                 Modified = DateTime.Now.ToString("yyyy-MM-dd"),
                 Deleted = null

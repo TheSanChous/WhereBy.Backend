@@ -13,13 +13,13 @@ namespace WhereBuy.Application
     public static class DependencyInjection
     {
         public static IServiceCollection AddApplication(
-            this IServiceCollection services)
+            this IServiceCollection services, Assembly assembly)
         {
             services.AddConfigurations();
 
             services.AddAutoMapper(config =>
             {
-                config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+                config.AddProfile(new AssemblyMappingProfile(assembly));
                 config.AddProfile(new AssemblyMappingProfile(typeof(AssemblyMappingProfile).Assembly));
             });
             services.AddMediatR(Assembly.GetExecutingAssembly());
