@@ -35,29 +35,53 @@ namespace WhereBuy.Auth.Services
                 throw AppErrors.WrongPassword;
             }
 
-            await mail.SendCodeAsync(user.Email, (new Random()).Next(1000, 9999));
+            if (user.IsEmailConfirmed is false)
+            {
+                throw AppErrors.EmailIsNotConfirmed;
+            }
 
             return await jWTService.GetTokensAsync(user, cancellationToken);
         }
 
-        public async Task<Tokens> ValidateVereficationCode(string code, CancellationToken cancellationToken)
+        public async Task<Tokens> ValidateVerificationCode(EmailVereficationCodeModel codeModel, CancellationToken cancellationToken)
         {
-            return null;
-        } 
+            var user = await databaseContext.Users
+                .FirstOrDefaultAsync(user => user.Email == codeModel.Email, cancellationToken);
+            
+            if (user == null)
+            {
+                throw AppErrors.NotFound.Create(nameof(codeModel.Email), codeModel.Email);
+            }
 
-        public async Task<Tokens> RegisterUserAsync(UserRegisterModel registerModel, CancellationToken cancellationToken)
+            if(user.VerificationCode != codeModel.Code)
+            {
+                throw AppErrors.WrongVerificationCode;
+            }
+
+            user.IsEmailConfirmed = true;
+
+            await databaseContext.SaveChangesAsync(cancellationToken);
+
+            return await jWTService.GetTokensAsync(user, cancellationToken);
+        }
+
+        public async Task RegisterUserAsync(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
             var user = await databaseContext.Users
                 .FirstOrDefaultAsync(user => user.Email == registerModel.Email, cancellationToken);
 
             if (user != null)
             {
-                throw new UnauthorizedException("EMAIL_ALREADY_EXIST");
+                throw AppErrors.EntityExists.Create(registerModel.Email);
             }
 
             user = await CreateNewUserAsync(registerModel, cancellationToken);
 
-            return await jWTService.GetTokensAsync(user, cancellationToken);
+            user.VerificationCode = (new Random()).Next(1000, 9999);
+
+            await mail.SendCodeAsync(user.Email, user.VerificationCode);
+
+            await databaseContext.SaveChangesAsync(cancellationToken);
         }
 
         private async Task<User> CreateNewUserAsync(UserRegisterModel registerModel, CancellationToken cancellationToken)
@@ -68,7 +92,9 @@ namespace WhereBuy.Auth.Services
             {
                 Email = registerModel.Email,
                 PasswordHash = passwordHash,
-                Points = 0
+                Name = registerModel.Email.Split('@').First(),
+                Points = 0,
+                IsEmailConfirmed = false
             };
 
             await databaseContext.Users.AddAsync(user, cancellationToken);

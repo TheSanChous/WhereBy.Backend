@@ -20,6 +20,7 @@ namespace WhereBuy.WebApi.Controllers
         public async Task<TokenResponse> Login(UserLoginModel loginModel, CancellationToken cancellationToken)
         {
             var tokens = await authService.LoginUserAsync(loginModel, cancellationToken);
+            
             return new TokenResponse
             {
                 Token = tokens.Token
@@ -27,9 +28,16 @@ namespace WhereBuy.WebApi.Controllers
         }
         
         [HttpPost("register")]
-        public async Task<TokenResponse> Register(UserRegisterModel registerModel, CancellationToken cancellationToken)
+        public async Task Register(UserRegisterModel registerModel, CancellationToken cancellationToken)
         {
-            var tokens = await authService.RegisterUserAsync(registerModel, cancellationToken);
+            await authService.RegisterUserAsync(registerModel, cancellationToken);
+        }
+
+        [HttpPost("confirmEmail")]
+        public async Task<TokenResponse> ConfirmEmail(EmailVereficationCodeModel codeModel, CancellationToken cancellationToken)
+        {
+            var tokens = await authService.ValidateVerificationCode(codeModel, cancellationToken);
+            
             return new TokenResponse
             {
                 Token = tokens.Token

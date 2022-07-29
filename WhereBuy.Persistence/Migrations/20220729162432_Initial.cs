@@ -36,7 +36,8 @@ namespace WhereBuy.Persistence.Migrations
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     PasswordSalt = table.Column<string>(type: "text", nullable: true),
                     Points = table.Column<int>(type: "integer", nullable: false),
-                    VerificationCode = table.Column<int>(type: "integer", nullable: false)
+                    VerificationCode = table.Column<int>(type: "integer", nullable: false),
+                    IsEmailConfirmed = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
