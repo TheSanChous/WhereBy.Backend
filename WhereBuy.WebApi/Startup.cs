@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 using WhereBuy.Application;
 using WhereBuy.Auth;
 using WhereBuy.Persistence;
@@ -18,8 +19,8 @@ namespace WhereBuy.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication();
-            services.AddPersistence(Configuration);
+            services.AddApplication(Assembly.GetExecutingAssembly());
+            services.AddPersistence();
 
             services.AddControllers();
 

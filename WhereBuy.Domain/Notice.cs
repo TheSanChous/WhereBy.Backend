@@ -6,6 +6,7 @@ namespace WhereBuy.Domain
     {
         public int Id { get; set; }
         public Shop Shop { get; set; }
+        public User Creator { get; set; }
         public string Description { get; set; } = String.Empty;
         public string Created { get; set; } = String.Empty;
         public string Modified { get; set; } = String.Empty;
