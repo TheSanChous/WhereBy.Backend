@@ -22,6 +22,8 @@ namespace WhereBuy.Application.Notices.Queries.GetNoteDetails
             CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Notices
+                .Include(notice => notice.Shop)
+                .Include(notice => notice.Creator)
                 .FirstOrDefaultAsync(note =>
                 note.Id == request.Id, cancellationToken);
 

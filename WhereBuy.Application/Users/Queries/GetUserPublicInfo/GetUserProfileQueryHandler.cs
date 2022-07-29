@@ -1,33 +1,29 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WhereBuy.Application.Common.Exceptions;
 using WhereBuy.Common.Abstractions;
 
-namespace WhereBuy.Application.Users.Queries.GetUserProfile
+namespace WhereBuy.Application.Users.Queries.GetUserPublicInfo
 {
-    public class GetUserProfileQueryHandler : IRequestHandler<GetUserProfileQuery, UserProfileVM>
+    public class GetUserPublicInfoQueryHandler : IRequestHandler<GetUserPublicInfoQuery, UserPublicInfoVM>
     {
         private readonly IDatabaseContext databaseContext;
         private readonly ICurrentUserService currentUser;
         private readonly IMapper mapper;
 
-        public GetUserProfileQueryHandler(IDatabaseContext databaseContext,
+        public GetUserPublicInfoQueryHandler(IDatabaseContext databaseContext,
             ICurrentUserService currentUser,
             IMapper mapper)
         {
+            this.databaseContext = databaseContext;
             this.currentUser = currentUser;
             this.mapper = mapper;
-            this.databaseContext = databaseContext;
         }
 
-        public async Task<UserProfileVM> Handle(GetUserProfileQuery request, CancellationToken cancellationToken)
+        public async Task<UserPublicInfoVM> Handle(GetUserPublicInfoQuery request, CancellationToken cancellationToken)
         {
             var user = await databaseContext.Users.FirstOrDefaultAsync(user => user.Id == currentUser.UserId);
             
@@ -36,7 +32,7 @@ namespace WhereBuy.Application.Users.Queries.GetUserProfile
                 throw new NotFoundException(nameof(user), currentUser.UserId);
             }
 
-            return mapper.Map<UserProfileVM>(user);
+            return mapper.Map<UserPublicInfoVM>(user);
         }
     }
 }

@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WhereBuy.Application.Interfaces;
 using WhereBuy.Application.Users.Queries.GetUserProfile;
+using WhereBuy.Common.Abstractions;
 
 namespace WhereBuy.Application.Users.Commands
 {
