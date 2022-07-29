@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using WhereBuy.Auth.Models;
+using WhereBuy.Common.Configuration;
 using WhereBuy.Domain;
 
 namespace WhereBuy.Auth.Services
@@ -12,9 +13,9 @@ namespace WhereBuy.Auth.Services
     {
         private const string PointsClaimName = "Points";
 
-        private readonly IConfiguration configuration;
+        private readonly JWTConfiguration configuration;
 
-        public JWTService(IConfiguration configuration)
+        public JWTService(JWTConfiguration configuration)
         {
             this.configuration = configuration;
         }
@@ -22,7 +23,7 @@ namespace WhereBuy.Auth.Services
         public async Task<Tokens> GetTokensAsync(User user, CancellationToken cancellationToken)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.UTF8.GetBytes(configuration["JWT:Key"]);
+            var tokenKey = Encoding.UTF8.GetBytes(configuration.Key);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]

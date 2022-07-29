@@ -1,9 +1,8 @@
-﻿namespace WhereBuy.Application.Configuration
+﻿namespace WhereBuy.Common.Configuration
 {
+    [ServiceConfiguration("Mail")]
     public class MailConfiguration
     {
-        public static string ConfigurationSection = "Mail";
-
         public string Name { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
