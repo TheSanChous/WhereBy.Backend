@@ -42,8 +42,8 @@ namespace WhereBuy.Application.Notices.Commands.CreateNote
                 Shop = shop,
                 Description = request.Description,
                 Creator = currentUserService.User,
-                Created = DateTime.Now.ToString("yyyy-MM-dd"),
-                Modified = DateTime.Now.ToString("yyyy-MM-dd"),
+                Created = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                Modified = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Deleted = null
             };
 

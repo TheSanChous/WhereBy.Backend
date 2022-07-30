@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WhereBuy.Application.Shops.Commands.Create;
 using WhereBuy.Application.Shops.Queries.GetShopList;
@@ -15,18 +16,18 @@ namespace WhereBuy.WebApi.Controllers
         public ShopController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
-        public async Task<ActionResult<ShopListVM>> GetAll()
+        public async Task<ShopLookupDto[]>GetAll()
         {
             var query = new GetShopListQuery();
             var vm = await Mediator.Send(query);
-            return Ok(vm);
+            return vm.Shops.ToArray();
         }
 
         [HttpPost]
-        public async Task<ActionResult<ShopLookupDto>> Create([FromBody] CreateShopCommand createShop)
+        public async Task<ShopLookupDto> Create([FromBody] CreateShopCommand createShop)
         {
             var shop = await Mediator.Send(createShop);
-            return Ok(shop);
+            return shop;
         }
     }
 }

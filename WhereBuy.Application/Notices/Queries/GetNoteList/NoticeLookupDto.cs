@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using WhereBuy.Application.Common.Mappings;
 using WhereBuy.Domain;
 
@@ -9,6 +10,7 @@ namespace WhereBuy.Application.Notices.Queries.GetNoteList
         public int Id { get; set; }
         public Shop Shop { get; set; }
         public string Description { get; set; }
+        public string CreatedAt { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -18,7 +20,9 @@ namespace WhereBuy.Application.Notices.Queries.GetNoteList
                 .ForMember(noteDto => noteDto.Shop,
                     opt => opt.MapFrom(note => note.Shop))
                 .ForMember(noteDto => noteDto.Description,
-                    opt => opt.MapFrom(note => note.Description));
+                    opt => opt.MapFrom(note => note.Description))
+                .ForMember(noteDto => noteDto.CreatedAt,
+                        opt => opt.MapFrom(note => note.Created));
         }
     }
 }

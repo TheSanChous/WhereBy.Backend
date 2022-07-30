@@ -25,8 +25,7 @@ namespace WhereBuy.Application.Shops.Commands.Create
         {
             var matches = await databaseContext.Shops
                 .CountAsync(shop => shop.Name.ToLower() == request.Name.ToLower().Trim()
-                    || shop.Address.ToLower() == request.Address.ToLower().Trim()
-                    || shop.Location.Trim() == request.Location.ToLower().Trim(), cancellationToken);
+                    || shop.Address.ToLower() == request.Address.ToLower().Trim(), cancellationToken);
 
             if (matches > 0)
             {

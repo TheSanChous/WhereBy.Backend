@@ -30,7 +30,7 @@ namespace WhereBuy.Application.Notices.Commands.UpdateNote
             }
 
             entity.Description = request.Description;
-            entity.Modified = DateTime.Now.ToString("yyyy-MM-dd");
+            entity.Modified = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

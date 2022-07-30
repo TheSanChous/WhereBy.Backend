@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WhereBuy.Application.Notices.Commands.CreateNote;
 using WhereBuy.Application.Notices.Commands.DeleteCommand;
@@ -19,11 +20,11 @@ namespace WhereBuy.WebApi.Controllers
         public NoticeController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
-        public async Task<NoticeListVm> GetAll()
+        public async Task<NoticeLookupDto[]> GetAll()
         {
             var query = new GetNoticeListQuery();
             var vm = await Mediator.Send(query);
-            return vm;
+            return vm.Notices.ToArray();
         }
 
         [HttpGet("{id}")]
