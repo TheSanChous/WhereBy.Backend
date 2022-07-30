@@ -7,19 +7,21 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["WhereBy.WebApi/WhereBy.WebApi.csproj", "WhereBy.WebApi/"]
-COPY ["WhereBy.Persistence/WhereBy.Persistence.csproj", "WhereBy.Persistence/"]
-COPY ["WhereBy.Domain/WhereBy.Domain.csproj", "WhereBy.Domain/"]
-COPY ["WhereBy.Application/WhereBy.Application.csproj", "WhereBy.Application/"]
-RUN dotnet restore "WhereBy.WebApi/WhereBy.WebApi.csproj"
+COPY ["WhereBuy.WebApi/WhereBuy.WebApi.csproj", "WhereBuy.WebApi/"]
+COPY ["WhereBuy.Application/WhereBuy.Application.csproj", "WhereBuy.Application/"]
+COPY ["WhereBuy.Domain/WhereBuy.Domain.csproj", "WhereBuy.Domain/"]
+COPY ["WhereBuy.Abstractions/WhereBuy.Common.csproj", "WhereBuy.Abstractions/"]
+COPY ["WhereBuy.Persistence/WhereBuy.Persistence.csproj", "WhereBuy.Persistence/"]
+COPY ["WhereBuy.Auth/WhereBuy.Auth.csproj", "WhereBuy.Auth/"]
+RUN dotnet restore "WhereBuy.WebApi/WhereBuy.WebApi.csproj"
 COPY . .
-WORKDIR "/src/WhereBy.WebApi"
-RUN dotnet build "WhereBy.WebApi.csproj" -c Release -o /app/build
+WORKDIR "/src/WhereBuy.WebApi"
+RUN dotnet build "WhereBuy.WebApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "WhereBy.WebApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "WhereBuy.WebApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WhereBy.WebApi.dll"]
+ENTRYPOINT ["dotnet", "WhereBuy.WebApi.dll"]
